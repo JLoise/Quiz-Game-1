@@ -1,0 +1,322 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #e7a3cb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 1rem;
+}
+
+.container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 35px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  max-width: 600px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Screens */
+.screen {
+  display: none;
+  padding: 20px;
+  align-items: center;
+  text-align: center;
+}
+
+.screen.active {
+  display: block;
+}
+
+/* Start Screen */
+#start-screen h1 {
+  color: rgb(20, 14, 5);
+  font-size: 50px;
+  margin-bottom: 10px;
+}
+
+#start-screen p {
+  font-size: 14px;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+#quiz-header {
+  margin-bottom: 20px;
+}
+
+#question-text {
+  font-size: 24px;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.quiz-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.answers-containers {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.answer-btn {
+  background-color: #f8dff8;
+  color: #000000;
+  border: 2px solid #ccc;
+  padding: 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.3s ease;
+}
+
+.answer-btn:hover {
+  background-color: #e0e0e0;
+  border-color: #dac0ae;
+}
+
+.answer-btn.correct {
+  background-color: #c8e6c9;
+  border-color: #4caf50;
+}
+
+.answer-btn.incorrect {
+  background-color: #ffcdd2;
+  border-color: #f44336;
+}
+
+.progress-bar {
+  background-color: #f0f0f0;
+  height: 10px;
+  border-radius: 5px;
+  /* allow the message to appear above the bar */
+  position: relative;
+  overflow: visible;
+  padding-top: 12px;
+  margin-bottom: 20px;
+}
+
+.progress {
+  background-color: #4caf50;
+  height: 100%;
+  width: 0;
+  transition: width 0.3s ease;
+}
+
+/* Message that appears above progress bar when correct answer chosen */
+.progress-message {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.95);
+  padding: 6px 10px;
+  margin-top: 9px;
+  border-radius: 12px;
+  font-size: 14px;
+  color: #000;
+  border: 1px solid #ddd;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s ease;
+}
+
+.progress-message.show {
+  opacity: 1;
+  transform: translateX(-50%);
+}
+
+/* Valentine screen styles */
+#valentine-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+#valentine-message {
+  font-size: 22px;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.valentine-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.val-btn {
+  padding: 12px 22px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.val-btn.yes {
+  background-color: #2e7d32; /* green */
+}
+
+.val-btn.no {
+  background-color: #c62828; /* red */
+}
+
+.val-btn:active {
+  transform: scale(0.98);
+}
+
+/* confetti hearts */
+.confetti-container {
+  position: fixed; /* cover whole viewport */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 9999;
+}
+.confetti-heart {
+  position: absolute;
+  font-size: 20px;
+  will-change: transform, opacity;
+  opacity: 1;
+  transform-origin: center;
+  animation: confetti-fall linear forwards;
+}
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-10vh) rotate(0deg) translateX(0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(120vh) rotate(360deg) translateX(40px) scale(0.8);
+    opacity: 0;
+  }
+}
+
+/* sticker panel */
+.sticker-panel {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+  justify-content: center;
+}
+.sticker-panel .sticker {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 2px solid rgba(0, 0, 0, 0.06);
+  transition:
+    transform 120ms ease,
+    box-shadow 120ms ease;
+}
+.sticker-panel .sticker:hover {
+  transform: scale(1.06);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+.valentine-screen img.inserted-sticker {
+  color: tomato;
+  max-width: 180px;
+  display: block;
+  margin-top: 14px;
+  border-radius: 10px;
+}
+
+#bouquet-sticker-main {
+  width: 120px;
+  display: block;
+  margin: 0 auto 8px auto;
+  border-radius: 10px;
+}
+
+/* Result Screen */
+
+#result-screen h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.result-info {
+  border-radius: 10px;
+  padding: 20px;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.result-info p {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+#result-message {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: #000000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 500px) {
+  /* Adjust container padding and font sizes for smaller screens */
+  .container {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .screen {
+    padding: 15px;
+  }
+
+  #start-screen h1 {
+    font-size: 36px;
+  }
+
+  #question-text {
+    font-size: 20px;
+  }
+
+  .answer-btn {
+    font-size: 14px;
+    padding: 15px;
+  }
+}

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz Game</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="screen active" id="start-screen">
+        <h1>Quiz Time!</h1>
+        <p>LOYSIE POGI</p>
+        <button id="start-btn">Start Quiz!</button>
+      </div>
+
+      <div class="screen" id="quiz-screen">
+        <div class="quiz header">
+          <h2 id="question-text">Question Goes Here</h2>
+          <div class="quiz-info">
+            <p>
+              Question <span id="current-question">1</span> of
+              <span id="total-questions">5</span>
+            </p>
+
+            <p>Score: <span id="score">0</span></p>
+          </div>
+        </div>
+
+        <div id="answers-containers" class="answers-containers">
+          <!-- Answer buttons will be inserted here from our js code later at some point-->
+        </div>
+        <div class="progress-bar">
+          <div id="progress" class="progress"></div>
+          <div id="progress-message" class="progress-message"></div>
+        </div>
+      </div>
+
+      <div id="result-screen" class="screen">
+        <div id="standard-result">
+          <h1>Quiz Results</h1>
+          <p>
+            Your Final Score is: <span id="final-score">0</span> out of
+            <span id="max-score">5</span>
+          </p>
+          <div id="result-message">Good Job!</div>
+          <button id="restart-btn">Restart Quiz</button>
+        </div>
+
+        <div id="valentine-screen" style="display: none">
+          <img
+            id="bouquet-sticker-main"
+            src="https://media.tenor.com/ZhNxfL0GmoMAAAAi/mocha-bear-hearts.gif"
+            alt="bouquet" />
+          <h1 id="valentine-message">WILL YOU BE MY VALENTINE?</h1>
+          <div class="valentine-buttons">
+            <button id="valentine-yes" class="val-btn yes">YES</button>
+            <button id="valentine-no" class="val-btn no">NO</button>
+          </div>
+          <div id="sticker-panel" class="sticker-panel" style="display: none">
+            <!-- user-provided photos for stickers - place the files under images/ -->
+            <img
+              src="https://media.tenor.com/Jloq3y4mk8kAAAAi/amor-love.gif"
+              alt="sticker1"
+              class="sticker" />
+            <img
+              src="https://media1.tenor.com/m/vebPkPJbmGMAAAAC/rocky7.gif"
+              alt="sticker2"
+              class="sticker" />
+            <!-- fallback/extra sticker -->
+            <img
+              src="https://media.giphy.com/media/5xaOcLGvzHxDKjufnLW/giphy.gif"
+              alt="heart3"
+              class="sticker" />
+          </div>
+          <div id="confetti-container" class="confetti-container"></div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
